@@ -1,0 +1,235 @@
+.gradient-custom {
+    background:
+    conic-gradient(#fff 0.25turn, rgb(207, 206, 206) 0.25turn 0.5turn, #fff 0.5turn 0.75turn, rgb(165, 165, 165) 0.75turn)
+    top left / 0.3em 0.3em repeat;
+    outline: 1px solid;
+  }
+
+
+/* ========================================== NAVBAR CSS STYLE ====================================== */
+
+@media (min-width:360px) {
+    /*so it doesn't effect the smaller screen wrapped under media screen*/
+
+
+    .navbar {
+        padding: 0;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        padding: 1em 0;
+        color: rgb(255, 255, 255);
+        font-weight: 500;
+    }
+
+    .navbar .navbar-nav .nav-item {
+        margin: 0 1em;
+        color: rgb(255, 255, 255);
+    }
+}
+
+/* ----------------------------------------- */
+
+.navbar .navbar-nav .nav-item {
+    position: relative;
+}
+
+.navbar .navbar-nav .nav-item::after {
+    content: '';
+    opacity: 0;
+    transition: all 0.5s;
+    height: 4px;
+    width: 0%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.navbar .navbar-nav .nav-item:hover::after {
+    opacity: 1;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+/* ------ logo CSS style ------ */
+
+.logo {
+    width: 1em;
+    color: black !important;
+    overflow:visible;
+    font-size: 1rem !important;
+    font-style: italic;
+    text-transform: uppercase !important;
+    transform: rotate(-8deg) skew(-8deg) ;
+    text-shadow: -0.5px 0.5px 0 #ffa110,
+    0.5px 0.5px 0 #ffb800,
+    0.5px -0.5px 0 #fde700,
+        -0.5px -0.5px 0 rgba(255,184,0,0.8);
+    font-weight:900 !important;
+    font-stretch:extra-expanded;
+    line-height: 1em;
+    margin-top: 0.5em !important;
+    margin-left: 2rem;
+    
+}
+
+
+/* ========================================== Cover and Background Image STYLE ====================================== */
+
+.cover-container {
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.cover {
+    margin: 0;
+    padding: 0;
+    background-image: url(/img/wallpaper.jpg);
+    width: 5076px;
+    animation: slide 35s linear infinite reverse;
+    -webkit-background-size: contain;
+    background-size:contain;
+    background-position:0% 0%;
+    background-repeat: repeat;
+    font-family: monospace;
+    height: 50vh;
+}
+
+@keyframes slide {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-1692px, 0, 0);
+    }
+}
+
+/* ========================================== Cover Caption STYLE ====================================== */
+
+.cover-content a {
+    background: #ecea71;
+    color: rgb(255, 0, 0);
+    text-decoration: none;
+    padding: 1rem 1rem;
+    border-radius: 5%;
+    display: inline-block;
+    margin-top: 10rem;
+    font-size: medium;
+    font-family: 'Bangers', cursive;
+    opacity: 0.4;
+}
+
+.cover-content a:hover::after {
+
+    opacity: 1;
+}
+
+.cover-content h3 {
+    color: #fff;
+    font-weight:300;
+    font-family: 'Bangers', cursive;
+}
+
+.animated::before {
+    content: " ";
+    animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+
+    0% {
+        content: 'Find';
+    }
+
+    40% {
+        content: 'Read';
+    }
+
+    100% {
+        content: 'Introduce yourself with everything';
+    }
+}
+
+.cover-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+/* ========================================== Search Box STYLE ====================================== */
+
+.featurette-heading {
+    font-size: 4em;
+    font-style: italic;
+    margin-top: 1em !important;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    transform: rotate(-10deg) skew(-10deg);
+    text-shadow: 2px 2px #ff0000;
+}
+
+.search-box input {
+    border: 1px solid black;
+    background-color: #ecea71;
+    color: black;
+    box-shadow: 5px 7px 4px rgb(45, 44, 44);
+
+}
+
+.search-box button  {
+    background-color: #ecea71;
+    border: 2px solid black !important;
+    box-shadow: 5px 7px 4px rgb(45, 44, 44);
+    font-family: 'Bangers', cursive;
+    font-size: medium;
+   }
+
+   .dot {
+    height: 5px;
+    width: 5px;
+    background-color: rgb(236, 234, 113);
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid black;
+  }
+
+::placeholder {
+    font-family: 'Bangers', cursive;
+    background: #ecea71;
+    color: rgb(103, 97, 97) !important;
+    font-size: medium;
+  }
+
+
+/* ========================================== Card STYLE ====================================== */
+
+.card {
+    background-image: linear-gradient(to left bottom, #ffa110, #ffb800, #ffcf00, #fde700, #f4ff00);
+    border: 2px solid black !important;
+    box-shadow: 6px 10px 4px rgb(45, 44, 44);
+    font-family: 'Bangers', cursive;
+
+}
+
+.dialogue {
+    background-color: rgb(236, 234, 113);
+    border: 2px solid black !important;
+    border-style: outset;
+    box-shadow: 5px 7px 10px rgb(45, 44, 44);
+    font-family: 'Bangers', cursive;
+    display: inline-block;
+}
+
+
+hr {
+    margin-top: 10em;
+    margin-bottom: 10em;
+    visibility: hidden;
+}
