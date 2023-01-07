@@ -9,34 +9,34 @@ const baseUrl = "https://gateway.marvel.com:443/v1/public/"
 const resultArea = document.getElementById("result");
 const sound = document.getElementById("sound");
 const button = document.getElementById("search-button");
-
-
 let result = "";
 
 
 
-const getDefinitions = async (event) => {
 
-    event.preventDefault();
+
+const getDefinitions = async () => {
 
     resultArea.innerHTML = '';
 
     let inputWord = document.getElementById("input-word").value;
     console.log(inputWord)
 
-    const timeStamp = Date.now();
 
-    let hash = createHash()
+    try {
+
+
+        const timeStamp = Date.now();
+
+        let hash = createHash()
 
         function createHash() {
-        hashValue = CryptoJS.MD5(timeStamp+pvtKey+apikey);
-        return hashValue;
+            hashValue = CryptoJS.MD5(timeStamp + pvtKey + apikey);
+            return hashValue;
         }
 
 
-    const characterUrl = `${baseUrl}characters?nameStartsWith=${inputWord}&ts=${timeStamp}&apikey=${apikey}&hash=${hash}`
-        
-    try {
+        const characterUrl = `${baseUrl}characters?nameStartsWith=${inputWord}&ts=${timeStamp}&apikey=${apikey}&hash=${hash}`
 
         const response = await fetch(`${characterUrl}`)
         const details = await response.json();
@@ -56,11 +56,11 @@ const getDefinitions = async (event) => {
 
             resultArea.innerHTML += result;
 
-            })
+        })
 
-        } catch (error) {
+    } catch (error) {
 
-            result = `
+        resultArea.innerHTML = `
             <div class="card m-4" style="width: 18rem;">
                 <img src="" class="img-fluid img-thumbnail my-1" alt="Oops! Image not found">
                 <div class="card-body">
@@ -70,10 +70,8 @@ const getDefinitions = async (event) => {
                 </div>
             </div>`
 
-            resultArea.innerHTML += result;
-            
-        }
+    }
 }
 
 
-button.addEventListener('click', getDefinitions(e))
+button.addEventListener('click', getDefinitions)
