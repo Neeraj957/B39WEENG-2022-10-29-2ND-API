@@ -15,7 +15,9 @@ let result = "";
 
 
 
-const getDefinitions = async () => {
+const getDefinitions = async (event) => {
+
+    event.preventDefault();
 
     resultArea.innerHTML = '';
 
@@ -74,4 +76,4 @@ const getDefinitions = async () => {
 }
 
 
-button.addEventListener('click', getDefinitions)
+button.addEventListener('click', getDefinitions(e))
